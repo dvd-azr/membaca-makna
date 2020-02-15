@@ -15,7 +15,7 @@ Semoga Berguna & Bermanfaat.
 2. Seleksi "sebuah kata" *(Block)* yang ingin di ketahui maknanya.
 3. Click kanan pada kata tersebut.
 
-    ➡️ [Demo](https://dvd-azr.github.io/makna-kata/)
+    ➡️ [Demo](https://dvd-azr.github.io/membaca-makna/index.html)
     
 ## Library
  - <strong>[PDF.js](https://mozilla.github.io/pdf.js/)</strong> Portable Document Format (PDF) HTML5 `v1.3.224`
