@@ -1,0 +1,273 @@
+.card__wrapper {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  /* width: 100%; */
+  display: none;
+  opacity: 0;
+  z-index: 9999;
+  transform: translate3d(0, -0.5em, 0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.card__wrapper.show {
+  display: block;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.5s, transform 0.5s;
+
+}
+
+.cards {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  /* max-width: 34em; */
+  width: 360px;
+  min-width: 360px;
+
+  /* margin: 20% auto 0; */
+  margin: 20px 70px 0 auto;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  /* background: #ccc; */
+  padding: 40px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+  transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  transition: background 0.4s linear, -webkit-transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s;
+  transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s, background 0.4s linear;
+  transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s, background 0.4s linear, -webkit-transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* custom */
+  background: linear-gradient(455deg, #ffde1e, #d3b100);
+  /* background: #fffa50; */
+  /* background: #ffde1e; */
+  /* background: linear-gradient(-135deg, rgba(0, 0, 0, 0) 1.8em, #ffde1e 0%); */
+  border-radius: .5em;
+  font-size: 14px;
+}
+
+.card :last-child {
+  margin-bottom: 0;
+}
+
+.card--next {
+  z-index: 5;
+  -webkit-transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+  transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+}
+
+.card--out {
+  -webkit-animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  -webkit-transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  z-index: 1;
+  /* background: #bbb; */
+
+
+  background: #d3b100;
+}
+
+@-webkit-keyframes card-out {
+  0% {
+    z-index: 20;
+    -webkit-transform: translateY(0px) rotate(-4deg);
+    transform: translateY(0px) rotate(-4deg);
+  }
+
+  50% {
+    -webkit-transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+    transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+  }
+
+  80% {
+    z-index: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  }
+}
+
+@keyframes card-out {
+  0% {
+    z-index: 20;
+    -webkit-transform: translateY(0px) rotate(-4deg);
+    transform: translateY(0px) rotate(-4deg);
+  }
+
+  50% {
+    -webkit-transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+    transform: translateY(-120%) rotate(-5deg) translateX(-40px);
+  }
+
+  80% {
+    z-index: 1;
+  }
+
+  100% {
+    -webkit-transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+  }
+}
+
+.card--current {
+  cursor: auto;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  /* background: #EEE; */
+  -webkit-transform: rotate(-1deg) translateX(0%) scale(1);
+  transform: rotate(-1deg) translateX(0%) scale(1);
+
+  /* background-image: linear-gradient((-135deg, #ffde1e 50%, #fffa50); */
+  /* background: #ffde1e; */
+
+  box-shadow: -5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(-135deg, rgba(0, 0, 0, 0) 1.8em, #fffa50 0%);
+  /* background: #fffa50; */
+
+  padding-bottom: 50px;
+
+
+}
+
+
+/* Tambahan */
+.card--current::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat; */
+  width: 2.54558em;
+  height: 2.54558em;
+  transform: translateY(0em) rotate(0deg);
+  transform-origin: bottom right;
+  border-bottom-left-radius: inherit;
+  box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+}
+
+.card p {
+  max-height: 300px;
+  padding-right: 3px;
+  overflow-y: auto;
+  -webkit-user-select: none;
+
+}
+
+.small-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.small-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.indikator {
+  text-align: right;
+  margin-right: 50px;
+}
+
+.indikator p {
+  background: #3f3f3f;
+  /* width: 40px; */
+  float: right;
+  padding: 2px 15px;
+  margin: -30px auto;
+  text-align: center;
+  border-radius: 20px;
+  height: 20px;
+  color: #e9e9e9;
+  line-height: 20px;
+  font-weight: 600;
+  border: 2px solid #1b1b1b;
+
+}
+
+.next-prev {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  position: relative;
+  z-index: 9999;
+  margin: -40px auto;
+  padding-right: 60px;
+
+  transition: all 3s ease-in-out;
+
+}
+
+.next-prev button {
+  position: relative;
+  /* margin: 0;
+  margin-left: -1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left-color: transparent; */
+  background-color: #ffdd1e;
+  /* background: none; */
+  width: 32px;
+  height: 25px;
+  transition: all 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s;
+
+
+  min-width: 16px;
+  padding: 2px 6px 0;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  color: hsla(0, 0%, 100%, .8);
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  -webkit-transition-property: background-color, border-color, box-shadow;
+  -webkit-transition-duration: 150ms;
+  -webkit-transition-timing-function: ease;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+.next-prev button::before {
+  position: absolute;
+  display: inline-block;
+  top: 4px;
+  left: 7px;
+}
+
+.next-prev button.next::before {
+  content: url(../../../pdf-viewer/images/toolbarButton-pageDown.png);
+}
+
+.next-prev button.out::before {
+  content: url(../../../pdf-viewer/images/toolbarButton-pageUp.png);
+}
+
+::selection {
+  background: orangered;
+}
